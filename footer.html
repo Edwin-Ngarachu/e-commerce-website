@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Footer Example</title>
+    <style>
+      
+      .footer {
+        background-color: #f9f9f9; 
+        padding: 40px 20px;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-column {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-column h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #000;
+      }
+
+      .footer-column ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column ul li a {
+        text-decoration: none;
+        color: #555;
+        font-size: 14px;
+        transition: color 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: #e74c3c;
+      }
+
+      .footer-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .footer-icons a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: 2px solid #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        background-color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .footer-icons a:hover {
+        background-color: #e74c3c; 
+      }
+
+      .footer-copyright {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #777;
+      }
+    </style>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <footer class="footer">
+      <div class="footer-container">
+        
+        <div class="footer-column">
+          <h4>Shopping Guide</h4>
+          <ul>
+            <li><a href="#">How do I pay on Kilimall?</a></li>
+            <li><a href="#">Flash Sale</a></li>
+            <li><a href="#">How to apply aftersale/ Refund</a></li>
+            <li><a href="#">How long does my order arrive?</a></li>
+            <li><a href="#">How to shop on Kilimall</a></li>
+            <li><a href="#">Forgot Password?</a></li>
+          </ul>
+        </div>
+
+        <!-- Customer Help Center Column -->
+        <div class="footer-column">
+          <h4>Customer Help Center</h4>
+          <ul>
+            <li><a href="#">Dispute resolution policy</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li><a href="#">After Sale Policy</a></li>
+            <li><a href="#">Delivery and Shipping</a></li>
+            <li><a href="#">FAQ Center</a></li>
+          </ul>
+        </div>
+
+        <!-- Business Column -->
+        <div class="footer-column">
+          <h4>Business</h4>
+          <ul>
+            <li><a href="#">Want to be a seller?</a></li>
+            <li><a href="#">Seller University</a></li>
+            <li><a href="#">KiliShop</a></li>
+          </ul>
+        </div>
+
+        <!-- Kilimall International Column -->
+        <div class="footer-column">
+          <h4>Kilimall International</h4>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Kenya</a></li>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div class="footer-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-copyright">
+        &copy; 2025 Kilimall. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

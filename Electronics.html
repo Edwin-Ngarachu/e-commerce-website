@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronics</title>
+    <script>
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      .card {
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 15px;
+      }
+
+      .card-title {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .btn-add-to-cart {
+        width: 100%;
+        background-color: #fe3448;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-add-to-cart:hover {
+        background-color: #e62e40;
+      }
+      .btn-added {
+        background-color: #28a745 !important;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="navbar"></div>
+    </nav>
+    <h3 style="margin-top: 20px; margin-left: 40px; font-weight: bold">
+      Phones
+    </h3>
+    <div class="container mt-4">
+      <div class="row">
+       
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/finix hot 50i.webp" class="card-img-top" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Infinix Hot 50i 4+128gb</h5>
+              <p class="card-text">$119.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/itel A70 128gb.webp" class="card-img-top" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">ITel A70 4gb+128gb</h5>
+              <p class="card-text">$129.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/itel s24.webp" class="card-img-top" alt="Product 3" />
+            <div class="card-body">
+              <h5 class="card-title">Itel s24 8gb+128gb</h5>
+              <p class="card-text">$139.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+     
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/oppo a7.webp" class="card-img-top" alt="Product 4" />
+            <div class="card-body">
+              <h5 class="card-title">Oppo a7 4+64GB</h5>
+              <p class="card-text">$149.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/xiami 14c 128gb 4gb ram.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Xioami 14c 4+256gb</h5>
+              <p class="card-text">$259.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/vivo y25.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Vivo y25 4+128gb</h5>
+              <p class="card-text">$159.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-4">
+      <div class="row">
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/tecno pop 9.webp" class="card-img-top" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Tecno pop9 6+128gb</h5>
+              <p class="card-text">$199.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/techno spark 20.webp" class="card-img-top" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">Techno spark 20 4+128gb</h5>
+              <p class="card-text">$229.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/spark 30c.webp" class="card-img-top" alt="Product 3" />
+            <div class="card-body">
+              <h5 class="card-title">Tecno spark 30c 8+128gb</h5>
+              <p class="card-text">$239.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/samsung galaxy ao5.webp" class="card-img-top" alt="Product 4" />
+            <div class="card-body">
+              <h5 class="card-title">Samsung A05s 4+128gb</h5>
+              <p class="card-text">$149.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/oppo reno.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Oppo reno 4+64gb</h5>
+              <p class="card-text">$159.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/oppo a83.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Oppo A83 4+128gb</h5>
+              <p class="card-text">$159.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 style="margin-top: 20px; margin-left: 40px; font-weight: bold">
+      Laptops
+    </h3>
+    <div class="container mt-4">
+      <div class="row">
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/cbook air.webp" class="card-img-top" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Macbook air 8 256gb</h5>
+              <p class="card-text">$319.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/dell latitude.webp" class="card-img-top" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">dell latitude 16 256gb</h5>
+              <p class="card-text">$429.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/fujitsu laptop.webp" class="card-img-top" alt="Product 3" />
+            <div class="card-body">
+              <h5 class="card-title">Fujitsu 16 256gb</h5>
+              <p class="card-text">$139.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/hp elitebook.webp" class="card-img-top" alt="Product 4" />
+            <div class="card-body">
+              <h5 class="card-title">Hp elitebook 16 256gb</h5>
+              <p class="card-text">$249.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/lenovo 270.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Lenovo yoga 270 8 256gb</h5>
+              <p class="card-text">$359.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/lenovo x1 carbon.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Lenovo x1 carbon 8 256gb</h5>
+              <p class="card-text">$359.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-4">
+      <div class="row">
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/lenovo yoga.webp" class="card-img-top" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Lenovo yoga 390 8 256gb</h5>
+              <p class="card-text">$199.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/ll latitude.webp" class="card-img-top" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">Dell latitude 8 256gb</h5>
+              <p class="card-text">$229.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/lenovo yoga.webp" class="card-img-top" alt="Product 3" />
+            <div class="card-body">
+              <h5 class="card-title">Lenovo yoga 8 256gb</h5>
+              <p class="card-text">$339.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/Thinkpad t490s.webp" class="card-img-top" alt="Product 4" />
+            <div class="card-body">
+              <h5 class="card-title">Lenovo T490s 16gb 256gb</h5>
+              <p class="card-text">$349.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/thinkpad x220s.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Lenovo thikpad 8 256gb</h5>
+              <p class="card-text">$259.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="electronics/hp probook.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Hp probook v</h5>
+              <p class="card-text">$259.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function addToCart(button) {
+        button.textContent = "Added to Cart";
+        button.classList.remove("btn-add-to-cart");
+        button.classList.add("btn-added");
+        button.disabled = true;
+      }
+    </script>
+
+    <div id="footer"></div>
+    <script>
+        // JavaScript to toggle the mobile menu
+        function toggleMenu() {
+          const navbarLinks = document.querySelector(".custom-navbar-links");
+          navbarLinks.classList.toggle("active");
+        }
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

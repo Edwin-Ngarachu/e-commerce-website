@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronics</title>
+    <script>
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      .card {
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 15px;
+      }
+
+      .card-title {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 10px;
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .btn-add-to-cart {
+        width: 100%;
+        background-color: #fe3448;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-add-to-cart:hover {
+        background-color: #e62e40;
+      }
+      .btn-added {
+        background-color: #28a745 !important;
+        cursor: not-allowed;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="navbar"></div>
+    </nav>
+    <h3 style="margin-top: 20px; margin-left: 40px; font-weight: bold">
+      Womens Shoes
+    </h3>
+    <div class="container mt-4">
+      <div class="row">
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img
+              src="sandals unisex.webp"
+              class="card-img-top"
+              alt="Product 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">sandals unisex</h5>
+              <p class="card-text">$19.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/fish mouth heels.webp" class="card-img-top" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">fish mouth heels</h5>
+              <p class="card-text">$29.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/high heeels.webp" class="card-img-top" alt="Product 3" />
+            <div class="card-body">
+              <h5 class="card-title">high heels</h5>
+              <p class="card-text">$39.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/jasmine heels.webp" class="card-img-top" alt="Product 4" />
+            <div class="card-body">
+              <h5 class="card-title">Jasmine heels</h5>
+              <p class="card-text">$49.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/korean sandals.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">korean sandals</h5>
+              <p class="card-text">$59.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/outdoor slippers.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">outdoor slippers</h5>
+              <p class="card-text">$59.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-4">
+      <div class="row">
+      
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/leather heels.webp" class="card-img-top" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">leather heels</h5>
+              <p class="card-text">$19.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/women sports shoes.webp" class="card-img-top" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">sports shoes</h5>
+              <p class="card-text">$29.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/women indoor slippers.webp" class="card-img-top" alt="Product 3" />
+            <div class="card-body">
+              <h5 class="card-title">Indoor slippers</h5>
+              <p class="card-text">$39.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/wedge heels.webp" class="card-img-top" alt="Product 4" />
+            <div class="card-body">
+              <h5 class="card-title">heeels</h5>
+              <p class="card-text">$49.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/szchen red slippers.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Product 5</h5>
+              <p class="card-text">$59.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/ules slippers.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">mule slippers</h5>
+              <p class="card-text">$59.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 style="margin-top: 20px; margin-left: 40px; font-weight: bold">
+      Mens shoes
+    </h3>
+    <div class="container mt-4">
+      <div class="row">
+       
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/ens sandals.webp" class="card-img-top" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Mens sandals</h5>
+              <p class="card-text">$19.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/ns military shoes.webp" class="card-img-top" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">Mmilitary shoes</h5>
+              <p class="card-text">$29.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens airmax.webp" class="card-img-top" alt="Product 3" />
+            <div class="card-body">
+              <h5 class="card-title">Airmax</h5>
+              <p class="card-text">$39.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens sxchen slippers.webp" class="card-img-top" alt="Product 4" />
+            <div class="card-body">
+              <h5 class="card-title">slippers</h5>
+              <p class="card-text">$49.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens athletic.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">athletic shoes</h5>
+              <p class="card-text">$59.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens boots.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Mens boots</h5>
+              <p class="card-text">$59.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-4">
+      <div class="row">
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens brave.webp" class="card-img-top" alt="Product 1" />
+            <div class="card-body">
+              <h5 class="card-title">Brave shoes</h5>
+              <p class="card-text">$19.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens casual puma.webp" class="card-img-top" alt="Product 2" />
+            <div class="card-body">
+              <h5 class="card-title">Puma shoes</h5>
+              <p class="card-text">$29.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens casual shoes.webp" class="card-img-top" alt="Product 3" />
+            <div class="card-body">
+              <h5 class="card-title">Mens casuals</h5>
+              <p class="card-text">$39.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens casual.webp" class="card-img-top" alt="Product 4" />
+            <div class="card-body">
+              <h5 class="card-title">Mens casuals</h5>
+              <p class="card-text">$49.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/ns military shoes.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Military shoes</h5>
+              <p class="card-text">$59.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+          <div class="card">
+            <img src="shoes/mens idoor slippers.webp" class="card-img-top" alt="Product 5" />
+            <div class="card-body">
+              <h5 class="card-title">Mens slippers</h5>
+              <p class="card-text">$59.99</p>
+              <button class="btn btn-add-to-cart" onclick="addToCart(this)">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function addToCart(button) {
+        button.textContent = "Added to Cart";
+        button.classList.remove("btn-add-to-cart");
+        button.classList.add("btn-added");
+        button.disabled = true;
+      }
+    </script>
+
+    <div id="footer"></div>
+    <script>
+        
+        function toggleMenu() {
+          const navbarLinks = document.querySelector(".custom-navbar-links");
+          navbarLinks.classList.toggle("active");
+        }
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
