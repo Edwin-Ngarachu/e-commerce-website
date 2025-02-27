@@ -25,24 +25,28 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <style>
-      .card {
+       .card {
         margin-bottom: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgb(255, 255, 255);
         transition: transform 0.3s ease;
+        max-width: 300px; 
+        width: 100%; 
+      }
+      .card-body {
+        padding: 15px; 
+      }
+      .card-img-top {
+        height: 250px;
+        object-fit: cover;
       }
 
       .card:hover {
         transform: translateY(-5px);
       }
 
-      .card-img-top {
-        height: 200px;
-        object-fit: cover;
-      }
+    
 
-      .card-body {
-        padding: 15px;
-      }
+      
 
       .card-title {
         font-size: 1.1rem;

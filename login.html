@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - CartCraze</title>
+    <style>
+      
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      
+      .login-container {
+        background-color: #fff;
+        padding: 2.5rem; 
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 450px; 
+        text-align: center;
+      }
+
+      .login-container h1 {
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        color: #333;
+      }
+
+     
+      .login-form .form-group {
+        margin-bottom: 1.5rem; 
+        text-align: left;
+      }
+
+      .login-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      .login-form input {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        outline: none;
+      }
+
+      .login-form input:focus {
+        border-color: hsl(204, 100%, 50%);
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+      }
+
+      .login-form input::placeholder {
+        color: #999;
+      }
+
+      
+      .login-button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: hsl(204, 100%, 50%);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .login-button:hover {
+        background-color: hsl(0, 100%, 50%);
+      }
+
+      
+      .forgot-password {
+        margin-top: 1rem;
+      }
+
+      .forgot-password a {
+        color: hsl(204, 100%, 50%);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      .forgot-password a:hover {
+        text-decoration: underline;
+      }
+
+      
+      .register-link {
+        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        color: #333;
+      }
+
+      .register-link a {
+        color: hsl(204, 100%, 50%);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .register-link a:hover {
+        text-decoration: underline;
+      }
+
+      
+      .custom-navbar-logo {
+        font-size: xx-large;
+        font-weight: bolder;
+        text-decoration: none;
+        color: hsl(204, 100%, 50%);
+      }
+
+      .custom-navbar-logo span {
+        font-size: xx-large;
+        font-family: cursive;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <a href="index.html" class="custom-navbar-logo">
+        Cart<span>craze</span>
+      </a>
+      <form class="login-form">
+        
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            required
+          />
+        </div>
+
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        
+        <button type="submit" class="login-button">Login</button>
+
+        
+        <div class="forgot-password">
+          <a href="#">Forgot Password?</a>
+        </div>
+      </form>
+
+      
+      <div class="register-link">
+        <p>New to CartCraze? <a href="signup.html">Register Now</a></p>
+      </div>
+    </div>
+  </body>
+</html>
