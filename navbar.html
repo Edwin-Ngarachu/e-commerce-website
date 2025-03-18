@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Navbar</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-      
-      .custom-navbar {
+ .custom-navbar {
         background-color: hwb(0 98% 2%);
         padding: 10px 20px;
         margin-bottom: 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1000; /* Ensure navbar is above other content */
       }
 
       .custom-navbar-container {
@@ -22,10 +27,9 @@
       }
 
       .custom-navbar-logo {
-       font-size: xx-large;
-        font-weight:bolder ;
-        text-decoration: none
-       
+        font-size: xx-large;
+        font-weight: bolder;
+        text-decoration: none;
       }
 
       .custom-navbar-links {
@@ -117,26 +121,52 @@
         transform: rotate(180deg);
       }
 
-      .custom-navbar-search {
+      /* Search Bar Styles */
+      .search-container {
         flex: 1;
         margin: 0 20px;
+        max-width: 400px;
       }
 
-      .custom-navbar-search input {
+      .search-input {
         width: 100%;
         padding: 8px 12px;
-        border: 1px solid #3498db;
-        border-radius: 4px;
-        font-size: 14px;
-        background-color: #34495e;
-        color: #ecf0f1;
+        border: 2px solid #0080ff;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        color: #333;
+        background-color: #f8f9fa;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
       }
 
-      .custom-navbar-search input::placeholder {
-        color: #bdc3c7;
+      .search-input:focus {
+        border-color: #fe3448;
+        box-shadow: 0 0 8px rgba(254, 52, 72, 0.5);
+        outline: none;
       }
 
-     
+      .search-input::placeholder {
+        color: #666;
+      }
+
+      .search-button {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #0080ff;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .search-button:hover {
+        color: #fe3448;
+      }
+
+      /* Hamburger Menu Styles */
       .hamburger-menu {
         display: none;
         flex-direction: column;
@@ -147,55 +177,92 @@
       .hamburger-menu div {
         width: 25px;
         height: 3px;
-        background-color: #ecf0f1;
+        background-color: #333;
         border-radius: 2px;
       }
 
-      
+      /* Mobile Styles */
       @media (max-width: 768px) {
+        .custom-navbar-container {
+          flex-wrap: wrap;
+        }
+
+        .custom-navbar-logo {
+          order: 1;
+        }
+
+        .search-container {
+          order: 2;
+          flex: 1 1 100%;
+          margin: 10px 0;
+        }
+
+        .hamburger-menu {
+          display: flex;
+          order: 3;
+        }
+
         .custom-navbar-links {
           display: none;
           flex-direction: column;
           gap: 10px;
           position: absolute;
-          top: 60px;
+          top: 70px; /* Adjusted to avoid overlap with navbar */
           left: 0;
           width: 100%;
           background-color: hsl(0, 0%, 100%);
           padding: 20px;
           box-shadow: 0 4px 8px rgb(0, 166, 255);
+          z-index: 999; /* Ensure dropdown is above other content */
         }
 
         .custom-navbar-links.active {
           display: flex;
         }
 
-        .custom-navbar-search {
+        .custom-navbar-actions {
           display: none;
         }
 
-        .hamburger-menu {
-          display: flex;
+        .custom-navbar-links .custom-btn-primary {
+          display: block;
+          text-align: center;
+          margin-top: 10px;
         }
       }
-   
     </style>
   </head>
   <body>
     <nav class="custom-navbar">
       <div class="custom-navbar-container">
-        <a href="index.html" class="custom-navbar-logo" >
-          Cart<span style="font-size: xx-large;font-family: cursive;">craze</span>
+        <!-- Logo -->
+        <a href="index.html" class="custom-navbar-logo">
+          Cart<span style="font-size: xx-large; font-family: cursive">craze</span>
         </a>
-
-        
+    
+        <!-- Search Bar -->
+        <div class="search-container">
+          <div style="position: relative;">
+            <input
+              type="text"
+              class="search-input"
+              id="searchInput"
+              placeholder="Search for products..."
+            />
+            <button class="search-button" onclick="searchProducts()">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+    
+        <!-- Hamburger Menu -->
         <div class="hamburger-menu" onclick="toggleMenu()">
           <div></div>
           <div></div>
           <div></div>
         </div>
-
-       
+    
+        <!-- Navbar Links -->
         <ul class="custom-navbar-links">
           <li>
             <a href="index.html">Homepage</a>
@@ -215,28 +282,103 @@
           <li>
             <a href="contactus.html">Contact us</a>
           </li>
-          <li class="custom-dropdown">
+          <!-- Dynamic My Account Dropdown -->
+          <li class="custom-dropdown" id="myAccountDropdown">
             <a href="#" style="color: #0b35de">My account</a>
-            <ul class="custom-dropdown-menu">
+            <ul class="custom-dropdown-menu" id="myAccountMenu">
               <li><a href="login.html">Login</a></li>
               <li><a href="signup.html">Register now</a></li>
+              <!-- Logout Link -->
+              <li><a href="#" id="logoutLink">Logout</a></li>
             </ul>
           </li>
+          <!-- My Cart Button -->
+          <li>
+            <a href="mycart.html" class="custom-btn custom-btn-primary">My cart</a>
+          </li>
         </ul>
-
-       
-        <div class="custom-navbar-actions">
-          <a href="#" class="custom-btn custom-btn-primary">My cart</a>
-        </div>
       </div>
     </nav>
 
     <script>
-      
+      // Toggle Hamburger Menu
       function toggleMenu() {
         const navbarLinks = document.querySelector(".custom-navbar-links");
         navbarLinks.classList.toggle("active");
       }
+// Function to handle logout
+function logout() {
+  // Clear the logged-in user from localStorage
+  localStorage.removeItem("loggedInUser");
+  console.log("User logged out"); // Debugging
+  // Redirect to the homepage
+  window.location.href = "index.html";
+}
+
+// Attach the logout function to the logout link
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutLink = document.getElementById("logoutLink");
+  console.log("Logout Link:", logoutLink); // Debugging
+  if (logoutLink) {
+    logoutLink.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent the default link behavior
+      logout(); // Call the logout function
+    });
+  }
+});
+
+//       // Function to update the navbar for logged-in users
+// function updateNavbarForLoggedInUser(user) {
+//   const myAccountDropdown = document.getElementById("myAccountDropdown");
+
+//   if (user) {
+//     // Update the dropdown to show the user's email and logout option
+//     myAccountDropdown.innerHTML = `
+//       <a href="#" style="color: #0b35de">${user.email}</a>
+//       <ul class="custom-dropdown-menu">
+//         <li><a href="#" onclick="logout()">Logout</a></li>
+//       </ul>
+//     `;
+//   } else {
+//     // Reset to default (Login and Register)
+//     myAccountDropdown.innerHTML = `
+//       <a href="#" style="color: #0b35de">My account</a>
+//       <ul class="custom-dropdown-menu">
+//         <li><a href="login.html">Login</a></li>
+//         <li><a href="signup.html">Register now</a></li>
+//       </ul>
+//     `;
+//   }
+// }
+
+// // Function to handle logout
+// function logout() {
+//   // Clear the logged-in user from localStorage
+//   localStorage.removeItem("loggedInUser");
+//   // Redirect to the homepage
+//   window.location.href = "index.html";
+// }
+
+// // Function to check login state and update navbar
+// function checkLoginState() {
+//   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+//   console.log("Logged in user:", loggedInUser); // Debugging
+
+//   // Update the navbar based on the logged-in user
+//   if (loggedInUser) {
+//     updateNavbarForLoggedInUser(loggedInUser);
+//   }
+// }
+
+// // Wait for the DOM to load before updating the navbar
+// document.addEventListener("DOMContentLoaded", () => {
+//   checkLoginState();
+// });
+
+// // If the navbar is loaded dynamically, call this function after injection
+// function onNavbarLoaded() {
+//   checkLoginState();
+// }
     </script>
   </body>
 </html>

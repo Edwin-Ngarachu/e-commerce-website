@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - CartCraze</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-      
-      body {
+           body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         display: flex;
@@ -132,8 +133,7 @@
       <a href="index.html" class="custom-navbar-logo">
         Cart<span>craze</span>
       </a>
-      <form class="login-form">
-        
+      <form id="loginForm" class="login-form">
         <div class="form-group">
           <label for="username">Username</label>
           <input
@@ -145,7 +145,6 @@
           />
         </div>
 
-        
         <div class="form-group">
           <label for="password">Password</label>
           <input
@@ -157,19 +156,50 @@
           />
         </div>
 
-        
         <button type="submit" class="login-button">Login</button>
 
-        
         <div class="forgot-password">
           <a href="#">Forgot Password?</a>
         </div>
       </form>
 
-      
       <div class="register-link">
         <p>New to CartCraze? <a href="signup.html">Register Now</a></p>
       </div>
     </div>
+
+    <script>
+      $(document).ready(function () {
+        // Handle form submission
+        $("#loginForm").on("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          // Get form values
+          const email = $("#username").val();
+          const password = $("#password").val();
+
+          // Retrieve users from localStorage
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+
+          // Check if user exists
+          const user = users.find(
+            (user) => user.email === email && user.password === password
+          );
+
+          if (user) {
+            // Save the logged-in user's email in localStorage
+            localStorage.setItem("loggedInUser", email);
+
+            // Show welcome alert
+            alert(`Welcome back, ${user.firstName}!`);
+
+            // Redirect to index.html
+            window.location.href = "index.html";
+          } else {
+            alert("Invalid email or password!");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

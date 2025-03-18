@@ -136,6 +136,36 @@
 
     <div id="footer"></div>
     <script>
+      // Function to load the navbar dynamically
+      function loadNavbar() {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Inject the navbar into the DOM
+            document.getElementById("navbar").innerHTML = data;
+
+            // Attach the logout event listener after the navbar is loaded
+            const logoutLink = document.getElementById("logoutLink");
+            if (logoutLink) {
+              logoutLink.addEventListener("click", (e) => {
+                e.preventDefault(); // Prevent the default link behavior
+                logout(); // Call the logout function
+              });
+            }
+          });
+      }
+
+      // Function to handle logout
+      function logout() {
+        // Clear the logged-in user from localStorage
+        localStorage.removeItem("loggedInUser");
+        console.log("User logged out"); // Debugging
+        // Redirect to the homepage
+        window.location.href = "index.html";
+      }
+
+      // Load the navbar when the page loads
+      loadNavbar();
       // JavaScript to toggle the mobile menu
       function toggleMenu() {
         const navbarLinks = document.querySelector(".custom-navbar-links");

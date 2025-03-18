@@ -3,19 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Electronics</title>
-    <script>
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-        });
-      fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer").innerHTML = data;
-        });
-    </script>
+    <title>Clothes</title>
+    
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,15 +14,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <style>
-       .card {
+      .card {
         margin-bottom: 20px;
         box-shadow: 0 2px 4px rgb(255, 255, 255);
         transition: transform 0.3s ease;
-        max-width: 300px; 
-        width: 100%; 
+        max-width: 300px;
+        width: 100%;
       }
       .card-body {
-        padding: 15px; 
+        padding: 15px;
       }
       .card-img-top {
         height: 250px;
@@ -43,10 +32,6 @@
       .card:hover {
         transform: translateY(-5px);
       }
-
-    
-
-      
 
       .card-title {
         font-size: 1.1rem;
@@ -76,6 +61,53 @@
         background-color: #28a745 !important;
         cursor: not-allowed;
       }
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 600px;
+        padding: 2rem;
+        position: relative;
+        overflow-y: auto;
+        max-height: 90vh;
+      }
+      .modal-content img {
+        width: 100%;
+        height:250px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .modal-content h2 {
+        font-size: 2rem;
+        margin: 1.5rem 0 1rem;
+        color: #2c3e50;
+      }
+      .modal-content p {
+        font-size: 1rem;
+        color: #666;
+      }
+      .close-modal {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #333;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -88,12 +120,15 @@
     </h3>
     <div class="container mt-4">
       <div class="row">
-        
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/casual pants.webp" class="card-img-top" alt="Product 1" />
+          <div class="card" data-id="1">
+            <img
+              src="clothes/casual pants.webp"
+              class="card-img-top"
+              alt="Product 1"
+            />
             <div class="card-body">
-              <h5 class="card-title">Mens casual pants</h5>
+              <h5 class="card-title">Mens Casual Pants</h5>
               <p class="card-text">$19.99</p>
               <button class="btn btn-add-to-cart" onclick="addToCart(this)">
                 Add to Cart
@@ -101,10 +136,14 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/crop tops.webp" class="card-img-top" alt="Product 2" />
+          <div class="card" data-id="2">
+            <img
+              src="clothes/crop tops.webp"
+              class="card-img-top"
+              alt="Product 2"
+            />
             <div class="card-body">
               <h5 class="card-title">Womens crop tops</h5>
               <p class="card-text">$29.99</p>
@@ -114,11 +153,15 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/dresses.webp" class="card-img-top" alt="Product 3" />
-            <div class="card-body">
+          <div class="card" data-id="3">
+            <img
+              src="clothes/dresses.webp"
+              class="card-img-top"
+              alt="Product 3"
+            />
+            <div class="card-body" data-id="4">
               <h5 class="card-title">Womens dresses xxl</h5>
               <p class="card-text">$39.99</p>
               <button class="btn btn-add-to-cart" onclick="addToCart(this)">
@@ -127,10 +170,14 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/deras.webp" class="card-img-top" alt="Product 4" />
+          <div class="card" data-id="4">
+            <img
+              src="clothes/deras.webp"
+              class="card-img-top"
+              alt="Product 4"
+            />
             <div class="card-body">
               <h5 class="card-title">Womens deras xxl</h5>
               <p class="card-text">$49.99</p>
@@ -140,10 +187,14 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/jackets.webp" class="card-img-top" alt="Product 5" />
+          <div class="card"data-id="5">
+            <img
+              src="clothes/jackets.webp"
+              class="card-img-top"
+              alt="Product 5"
+            />
             <div class="card-body">
               <h5 class="card-title">Mens jackets x large</h5>
               <p class="card-text">$59.99</p>
@@ -154,8 +205,12 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/Lingerie.webp" class="card-img-top" alt="Product 5" />
+          <div class="card" data-id="6">
+            <img
+              src="clothes/Lingerie.webp"
+              class="card-img-top"
+              alt="Product 5"
+            />
             <div class="card-body">
               <h5 class="card-title">Wwomens Lingerie xl</h5>
               <p class="card-text">$59.99</p>
@@ -169,10 +224,13 @@
     </div>
     <div class="container mt-4">
       <div class="row">
-        
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/long sleeves.webp" class="card-img-top" alt="Product 1" />
+          <div class="card"data-id="7">
+            <img
+              src="clothes/long sleeves.webp"
+              class="card-img-top"
+              alt="Product 1"
+            />
             <div class="card-body">
               <h5 class="card-title">Mens long sleeves</h5>
               <p class="card-text">$19.99</p>
@@ -182,10 +240,14 @@
             </div>
           </div>
         </div>
-       
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/mens busn shirts.webp" class="card-img-top" alt="Product 2" />
+          <div class="card" data-id="8">
+            <img
+              src="clothes/mens busn shirts.webp"
+              class="card-img-top"
+              alt="Product 2"
+            />
             <div class="card-body">
               <h5 class="card-title">Mens official shirts</h5>
               <p class="card-text">$29.99</p>
@@ -195,10 +257,14 @@
             </div>
           </div>
         </div>
-       
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/socks.webp" class="card-img-top" alt="Product 3" />
+          <div class="card"data-id="9">
+            <img
+              src="clothes/socks.webp"
+              class="card-img-top"
+              alt="Product 3"
+            />
             <div class="card-body">
               <h5 class="card-title">socks 5 pairs x large</h5>
               <p class="card-text">$39.99</p>
@@ -206,13 +272,16 @@
                 Add to Cart
               </button>
             </div>
-
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/silk pants.webp" class="card-img-top" alt="Product 4" />
+          <div class="card" data-id="10">
+            <img
+              src="clothes/silk pants.webp"
+              class="card-img-top"
+              alt="Product 4"
+            />
             <div class="card-body">
               <h5 class="card-title">Mens silk pants xl</h5>
               <p class="card-text">$49.99</p>
@@ -222,10 +291,14 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/shirts short sleeves.webp" class="card-img-top" alt="Product 5" />
+          <div class="card" data-id="11">
+            <img
+              src="clothes/shirts short sleeves.webp"
+              class="card-img-top"
+              alt="Product 5"
+            />
             <div class="card-body">
               <h5 class="card-title">Mens short sleeves</h5>
               <p class="card-text">$59.99</p>
@@ -236,8 +309,12 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/womens gym short.webp" class="card-img-top" alt="Product 5" />
+          <div class="card" data-id="12">
+            <img
+              src="clothes/womens gym short.webp"
+              class="card-img-top"
+              alt="Product 5"
+            />
             <div class="card-body">
               <h5 class="card-title">Women gym shorts</h5>
               <p class="card-text">$59.99</p>
@@ -249,15 +326,18 @@
         </div>
       </div>
     </div>
-   
+
     <div class="container mt-4">
       <div class="row">
-        
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/misole vests.webp" class="card-img-top" alt="Product 1" />
+          <div class="card "data-id="13">
+            <img
+              src="clothes/misole vests.webp"
+              class="card-img-top"
+              alt="Product 1"
+            />
             <div class="card-body">
-              <h5 class="card-title">Camisole vests </h5>
+              <h5 class="card-title">Camisole vests</h5>
               <p class="card-text">$19.99</p>
               <button class="btn btn-add-to-cart" onclick="addToCart(this)">
                 Add to Cart
@@ -265,10 +345,14 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/see throuh lingerie.webp" class="card-img-top" alt="Product 2" />
+          <div class="card" data-id="14">
+            <img
+              src="clothes/see throuh lingerie.webp"
+              class="card-img-top"
+              alt="Product 2"
+            />
             <div class="card-body">
               <h5 class="card-title">See thru lingerie</h5>
               <p class="card-text">$29.99</p>
@@ -278,12 +362,16 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/nightwear women.webp" class="card-img-top" alt="Product 3" />
+          <div class="card" data-id="15">
+            <img
+              src="clothes/nightwear women.webp"
+              class="card-img-top"
+              alt="Product 3"
+            />
             <div class="card-body">
-              <h5 class="card-title">nightwear </h5>
+              <h5 class="card-title">nightwear</h5>
               <p class="card-text">$39.99</p>
               <button class="btn btn-add-to-cart" onclick="addToCart(this)">
                 Add to Cart
@@ -291,10 +379,14 @@
             </div>
           </div>
         </div>
-       
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/low rise.webp" class="card-img-top" alt="Product 4" />
+          <div class="card" data-id="16">
+            <img
+              src="clothes/low rise.webp"
+              class="card-img-top"
+              alt="Product 4"
+            />
             <div class="card-body">
               <h5 class="card-title">Low rise xxl</h5>
               <p class="card-text">$49.99</p>
@@ -304,10 +396,14 @@
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/mens shirts.webp" class="card-img-top" alt="Product 5" />
+          <div class="card" data-id="17">
+            <img
+              src="clothes/mens shirts.webp"
+              class="card-img-top"
+              alt="Product 5"
+            />
             <div class="card-body">
               <h5 class="card-title">Mens shirts xxl</h5>
               <p class="card-text">$59.99</p>
@@ -318,8 +414,12 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
-            <img src="clothes/sports shorts.webp" class="card-img-top" alt="Product 5" />
+          <div class="card" data-id="18">
+            <img
+              src="clothes/sports shorts.webp"
+              class="card-img-top"
+              alt="Product 5"
+            />
             <div class="card-body">
               <h5 class="card-title">Sport shorts xxl</h5>
               <p class="card-text">$59.99</p>
@@ -331,24 +431,403 @@
         </div>
       </div>
     </div>
-
-    <script>
-      function addToCart(button) {
-        button.textContent = "Added to Cart";
-        button.classList.remove("btn-add-to-cart");
-        button.classList.add("btn-added");
-        button.disabled = true;
-      }
-    </script>
-
+    <!-- Single Modal for All Products -->
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img src="" alt="Product Image" />
+        <h2>Product Title</h2>
+        <p>Price: <span id="modal-price"></span></p>
+        <p>Description: <span id="modal-description"></span></p>
+        <button class="btn btn-add-to-cart" onclick="addToCartFromModal(this)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
     <div id="footer"></div>
     <script>
-       
-        function toggleMenu() {
-          const navbarLinks = document.querySelector(".custom-navbar-links");
-          navbarLinks.classList.toggle("active");
+      // Product Data (can be fetched from an API or database)
+      const products = [
+  {
+    id: 1,
+    title: "Mens Casual Pants",
+    image: "clothes/casual pants.webp",
+    price: 19.99,
+    description: "These casual pants for men are designed for comfort and style. Made from high-quality cotton, they feature a loose fit and breathable fabric, making them perfect for everyday wear. The elastic waistband and adjustable drawstring ensure a perfect fit, while the durable material guarantees long-lasting use.",
+    quantity:1},
+  {
+    id: 2,
+    title: "Womens Crop Tops",
+    image: "clothes/crop tops.webp",
+    price: 29.99,
+    description: "Stay trendy with these stylish crop tops for women. Made from soft and stretchy fabric, they offer a comfortable fit and a flattering silhouette. Perfect for casual outings or summer wear, these crop tops are available in a variety of colors and patterns to suit your style.",
+    quantity:1},
+  {
+    id: 3,
+    title: "Womens Dresses XXL",
+    image: "clothes/dresses.webp",
+    price: 39.99,
+    description: "These XXL dresses for women are designed for comfort and elegance. Featuring a loose fit and breathable fabric, they are perfect for casual or formal occasions. The stylish design and vibrant colors make them a must-have in your wardrobe.",
+    quantity:1},
+  {
+    id: 4,
+    title: "Womens Deras XXL",
+    image: "clothes/deras.webp",
+    price: 49.99,
+    description: "These XXL deras for women are perfect for traditional occasions. Made from high-quality fabric, they feature intricate designs and vibrant colors. The loose fit and comfortable material ensure all-day comfort, making them ideal for weddings, festivals, or cultural events.",
+    quantity:1 },
+  {
+    id: 5,
+    title: "Mens Jackets X Large",
+    image: "clothes/jackets.webp",
+    price: 59.99,
+    description: "Stay warm and stylish with these X-large jackets for men. Designed for durability and comfort, they feature a sturdy construction and a sleek design. The multiple pockets and adjustable hood make them perfect for outdoor activities or casual wear.",
+    quantity:1 },
+  {
+    id: 6,
+    title: "Womens Lingerie XL",
+    image: "clothes/Lingerie.webp",
+    price: 59.99,
+    description: "These XL lingerie sets for women are designed for comfort and elegance. Made from soft and breathable fabric, they offer a perfect fit and a flattering silhouette. The delicate designs and vibrant colors make them a must-have in your intimate wear collection.",
+    quantity:1 },
+  {
+    id: 7,
+    title: "Mens Long Sleeves",
+    image: "clothes/long sleeves.webp",
+    price: 19.99,
+    description: "These long-sleeve shirts for men are perfect for casual or formal occasions. Made from high-quality cotton, they offer a comfortable fit and a sleek design. The breathable fabric ensures all-day comfort, while the durable construction guarantees long-lasting use.",
+    quantity:1 },
+  {
+    id: 8,
+    title: "Mens Official Shirts",
+    image: "clothes/mens busn shirts.webp",
+    price: 29.99,
+    description: "Stay professional with these official shirts for men. Designed for a sleek and polished look, they are perfect for office wear or formal occasions. The wrinkle-resistant fabric and comfortable fit ensure all-day comfort and style.",
+    quantity:1 },
+  {
+    id: 9,
+    title: "Socks 5 Pairs X Large",
+    image: "clothes/socks.webp",
+    price: 39.99,
+    description: "These X-large socks come in a pack of five pairs, offering comfort and durability. Made from soft and breathable fabric, they are perfect for everyday wear. The reinforced heel and toe ensure long-lasting use, while the elastic design provides a secure fit.",
+    quantity:1 },
+  {
+    id: 10,
+    title: "Mens Silk Pants XL",
+    image: "clothes/silk pants.webp",
+    price: 49.99,
+    description: "These XL silk pants for men are designed for comfort and elegance. Made from high-quality silk, they feature a loose fit and a sleek design. Perfect for formal occasions or lounging at home, these pants offer a luxurious feel and a stylish look.",
+  },
+  {
+    id: 11,
+    title: "Mens Short Sleeves",
+    image: "clothes/shirts short sleeves.webp",
+    price: 59.99,
+    description: "Stay cool and comfortable with these short-sleeve shirts for men. Made from breathable cotton, they are perfect for summer wear or casual outings. The vibrant colors and sleek design make them a versatile addition to your wardrobe.",
+    quantity:1 },
+  {
+    id: 12,
+    title: "Women Gym Shorts",
+    image: "clothes/womens gym short.webp",
+    price: 59.99,
+    description: "These gym shorts for women are designed for maximum comfort and flexibility. Made from lightweight and breathable fabric, they are perfect for workouts, running, or casual wear. The elastic waistband and adjustable drawstring ensure a perfect fit.",
+    quantity:1},
+  {
+    id: 13,
+    title: "Camisole Vests",
+    image: "clothes/misole vests.webp",
+    price: 19.99,
+    description: "These camisole vests for women are perfect for layering or wearing on their own. Made from soft and stretchy fabric, they offer a comfortable fit and a flattering silhouette. The delicate designs and vibrant colors make them a must-have in your wardrobe.",
+    quantity:1},
+  {
+    id: 14,
+    title: "See Thru Lingerie",
+    image: "clothes/see throuh lingerie.webp",
+    price: 29.99,
+    description: "Add a touch of elegance to your intimate wear with these see-through lingerie sets. Made from soft and breathable fabric, they offer a perfect fit and a flattering silhouette. The delicate designs and vibrant colors make them a must-have in your collection.",
+    quantity:1},
+  {
+    id: 15,
+    title: "Nightwear",
+    image: "clothes/nightwear women.webp",
+    price: 39.99,
+    description: "Relax in comfort with these nightwear sets for women. Made from soft and breathable fabric, they offer a perfect fit and a flattering silhouette. The loose fit and comfortable material ensure a good night's sleep.",
+    quantity:1 },
+  {
+    id: 16,
+    title: "Low Rise XXL",
+    image: "clothes/low rise.webp",
+    price: 49.99,
+    description: "These XXL low-rise pants for women are designed for comfort and style. Made from high-quality fabric, they feature a sleek design and a comfortable fit. Perfect for casual outings or lounging at home, these pants offer a trendy look.",
+    quantity:1 },
+  {
+    id: 17,
+    title: "Mens Shirts XXL",
+    image: "clothes/mens shirts.webp",
+    price: 59.99,
+    description: "These XXL shirts for men are perfect for casual or formal occasions. Made from high-quality cotton, they offer a comfortable fit and a sleek design. The breathable fabric ensures all-day comfort, while the durable construction guarantees long-lasting use.",
+    quantity:1 },
+  {
+    id: 18,
+    title: "Sport Shorts XXL",
+    image: "clothes/sports shorts.webp",
+    price: 59.99,
+    description: "Stay active and comfortable with these XXL sport shorts for men. Made from lightweight and breathable fabric, they are perfect for workouts, running, or casual wear. The elastic waistband and adjustable drawstring ensure a perfect fit.",
+    quantity:1 },
+];
+      
+function addToCart(button) {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+          alert("You must be logged in to add products to the cart.");
+          window.location.href = "login.html"; // Redirect to login page
+          return;
         }
-      </script>
+
+        const card = button.closest(".card");
+        const productId = parseInt(card.getAttribute("data-id"));
+        const product = products.find((p) => p.id === productId);
+
+        if (product) {
+          // Retrieve the cart for the logged-in user
+          const cartKey = `cart_${loggedInUser}`;
+          const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+          // Check if the product already exists in the cart
+          const existingProduct = cart.find((item) => item.id === product.id);
+
+          if (existingProduct) {
+            // If the product exists, increment its quantity
+            existingProduct.quantity += 1;
+          } else {
+            // If the product doesn't exist, add it to the cart with a default quantity of 1
+            product.quantity = 1;
+            cart.push(product);
+          }
+
+          // Save the updated cart to localStorage
+          localStorage.setItem(cartKey, JSON.stringify(cart));
+
+          // Update button
+          button.textContent = "Added to Cart";
+          button.classList.remove("btn-add-to-cart");
+          button.classList.add("btn-added");
+          button.disabled = true;
+
+          alert(`${product.title} added to cart!`);
+
+          // Update button states
+          updateButtonStates();
+        }
+      }
+
+      // Function to update button states based on cart contents
+      function updateButtonStates() {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) return;
+
+        const cartKey = `cart_${loggedInUser}`;
+        const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+        document.querySelectorAll(".card").forEach((card) => {
+          const productId = parseInt(card.getAttribute("data-id"));
+          const button = card.querySelector(".btn-add-to-cart");
+
+          if (cart.some((item) => item.id === productId)) {
+            button.textContent = "Added to Cart";
+            button.classList.remove("btn-add-to-cart");
+            button.classList.add("btn-added");
+            button.disabled = true;
+          }
+        });
+      }
+
+      
+      updateButtonStates();
+      // Modal Elements
+ const modal = document.querySelector(".modal");
+      const modalContent = document.querySelector(".modal-content");
+      const closeModal = document.querySelector(".close-modal");
+
+      // Function to open modal with product details
+      function openModal(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          modalContent.querySelector("img").src = product.image;
+          modalContent.querySelector("h2").textContent = product.title;
+          modalContent.querySelector(
+            "#modal-price"
+          ).textContent = `$${product.price}`;
+          modalContent.querySelector("#modal-description").textContent =
+            product.description;
+          modal.style.display = "flex";
+        }
+      }
+
+      // Function to close modal
+      function closeModalHandler() {
+        modal.style.display = "none";
+      }
+      // Add to Cart Functionality from Modal
+function addToCartFromModal(button) {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  if (!loggedInUser) {
+    alert("You must be logged in to add products to the cart.");
+    window.location.href = "login.html"; // Redirect to login page
+    return;
+  }
+
+  const productTitle = modalContent.querySelector("h2").textContent;
+  const product = products.find((p) => p.title === productTitle);
+
+  if (product) {
+    // Retrieve the cart for the logged-in user
+    const cartKey = `cart_${loggedInUser}`;
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+    // Check if the product already exists in the cart
+    const existingProduct = cart.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      // If the product exists, increment its quantity
+      existingProduct.quantity += 1;
+    } else {
+      // If the product doesn't exist, add it to the cart with a default quantity of 1
+      product.quantity = 1;
+      cart.push(product);
+    }
+
+    // Save the updated cart to localStorage
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+
+    // Update button
+    button.textContent = "Added to Cart";
+    button.classList.remove("btn-add-to-cart");
+    button.classList.add("btn-added");
+    button.disabled = true;
+
+    alert(`${product.title} added to cart!`);
+
+    // Update button states
+    updateButtonStates();
+  }
+}
+
+// Attach event listeners to product cards
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("click", (event) => {
+    // Prevent event propagation if the click is on the "Add to Cart" button
+    if (event.target.classList.contains("btn-add-to-cart")) {
+      event.stopPropagation();
+      return;
+    }
+
+    const productId = parseInt(card.getAttribute("data-id"));
+    openModal(productId);
+  });
+});
+
+// Close modal when clicking outside or on the close button
+closeModal.addEventListener("click", (event) => {
+  event.stopPropagation();
+  closeModalHandler();
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    closeModalHandler();
+  }
+});
+
+      // Fetch and inject the navbar
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+
+          // Initialize search functionality AFTER the navbar is loaded
+          initializeSearch();
+        });
+
+      // Function to initialize search functionality
+      function initializeSearch() {
+        // Search Functionality
+        function searchProducts() {
+          const searchTerm = document
+            .getElementById("searchInput")
+            .value.toLowerCase();
+          const cards = document.querySelectorAll(".card");
+
+          cards.forEach((card) => {
+            const title = card
+              .querySelector(".card-title")
+              .textContent.toLowerCase();
+            if (title.includes(searchTerm)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+
+        // event listener for Enter key
+        document
+          .getElementById("searchInput")
+          .addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              searchProducts();
+            }
+          });
+
+        
+        document
+          .querySelector(".search-button")
+          .addEventListener("click", searchProducts);
+      }
+
+      // Fetch and inject the footer
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+        // Function to load the navbar dynamically
+      function loadNavbar() {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Inject the navbar into the DOM
+            document.getElementById("navbar").innerHTML = data;
+
+            // Attach the logout event listener after the navbar is loaded
+            const logoutLink = document.getElementById("logoutLink");
+            if (logoutLink) {
+              logoutLink.addEventListener("click", (e) => {
+                e.preventDefault(); // Prevent the default link behavior
+                logout(); // Call the logout function
+              });
+            }
+          });
+      }
+
+      // Function to handle logout
+      function logout() {
+        // Clear the logged-in user from localStorage
+        localStorage.removeItem("loggedInUser");
+        console.log("User logged out"); // Debugging
+        // Redirect to the homepage
+        window.location.href = "index.html";
+      }
+
+      // Load the navbar when the page loads
+      loadNavbar();
+        function toggleMenu() {
+        const navbarLinks = document.querySelector(".custom-navbar-links");
+        navbarLinks.classList.toggle("active");
+      }
+
+   
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>

@@ -3,19 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Electronics</title>
-    <script>
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-        });
-      fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer").innerHTML = data;
-        });
-    </script>
+    <title>Appliances</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,7 +13,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <style>
-      .card {
+       .card {
         margin-bottom: 20px;
         box-shadow: 0 2px 4px rgb(255, 255, 255);
         transition: transform 0.3s ease;
@@ -72,6 +60,53 @@
         background-color: #28a745 !important;
         cursor: not-allowed;
       }
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 600px;
+        padding: 2rem;
+        position: relative;
+        overflow-y: auto;
+        max-height: 90vh;
+      }
+      .modal-content img {
+        width: 100%;
+        height: 400px;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+      .modal-content h2 {
+        font-size: 2rem;
+        margin: 1.5rem 0 1rem;
+        color: #2c3e50;
+      }
+      .modal-content p {
+        font-size: 1rem;
+        color: #666;
+      }
+      .close-modal {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #333;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -84,7 +119,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="1">
             <img
               src="appliances/ailyons electric kettle.webp"
               class="card-img-top"
@@ -101,7 +136,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="2">
             <img
               src="appliances/chips warmer.webp"
               class="card-img-top"
@@ -118,7 +153,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="3">
             <img
               src="appliances/electric kettle.webp"
               class="card-img-top"
@@ -135,7 +170,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="4">
             <img
               src="appliances/food proccessor.webp"
               class="card-img-top"
@@ -152,7 +187,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="5">
             <img
               src="appliances/hand mixer.webp"
               class="card-img-top"
@@ -168,7 +203,7 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="6">
             <img
               src="appliances/kitchen knives.webp"
               class="card-img-top"
@@ -188,7 +223,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="7">
             <img
               src="appliances/meat mincer.webp"
               class="card-img-top"
@@ -205,7 +240,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="8">
             <img
               src="appliances/microwave.webp"
               class="card-img-top"
@@ -222,7 +257,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="9">
             <img
               src="appliances/plate sets.webp"
               class="card-img-top"
@@ -239,7 +274,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="10">
             <img
               src="appliances/water dispenser.webp"
               class="card-img-top"
@@ -256,7 +291,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="11">
             <img
               src="appliances/sadwich maker.webp"
               class="card-img-top"
@@ -272,7 +307,7 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="12">
             <img
               src="appliances/pvs mats.webp"
               class="card-img-top"
@@ -289,25 +324,378 @@
         </div>
       </div>
     </div>
+>
+      </div>
+    </div>
 
-    <script>
-      function addToCart(button) {
-        button.textContent = "Added to Cart";
-        button.classList.remove("btn-add-to-cart");
-        button.classList.add("btn-added");
-        button.disabled = true;
-      }
-    </script>
-
+    <!-- Single Modal for All Products -->
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img src="" alt="Product Image" />
+        <h2>Product Title</h2>
+        <p>Price: <span id="modal-price"></span></p>
+        <p>Description: <span id="modal-description"></span></p>
+        <button class="btn btn-add-to-cart" onclick="addToCartFromModal(this)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
     <div id="footer"></div>
     <script>
-      // JavaScript to toggle the mobile menu
-      function toggleMenu() {
+      // Product Data (can be fetched from an API or database)
+      const products = [
+        {
+          id: 1,
+          title: "Electric Kettle",
+          image: "appliances/ailyons electric kettle.webp",
+          price: 19.99,
+          description:
+            "The Ailyons Electric Kettle is a high-performance kitchen appliance designed for quick and efficient boiling. With a sleek stainless steel finish and a capacity of 1.7 liters, it is perfect for making tea, coffee, or instant meals. Its ergonomic handle and 360-degree swivel base ensure safety and convenience.",
+        quantity:1},
+        {
+          id: 2,
+          title: "Chips Warmer",
+          image: "appliances/chips warmer.webp",
+          price: 29.99,
+          description:
+            "Keep your snacks warm and crispy with this innovative Chips Warmer. Designed with adjustable temperature controls and a compact size, it is ideal for parties, movie nights, or casual snacking. Its non-stick interior ensures easy cleaning and maintenance.",
+            quantity:1},
+        {
+          id: 3,
+          title: "Electric Kettle",
+          image: "appliances/electric kettle.webp",
+          price: 39.99,
+          description:
+            "This Electric Kettle combines style and functionality with its modern design and rapid boiling technology. Featuring a 1.5-liter capacity, auto-shutoff, and boil-dry protection, it is a must-have for any kitchen. Its cordless design makes it easy to pour and serve.",
+            quantity:1},
+        {
+          id: 4,
+          title: "Food Processor",
+          image: "appliances/food proccessor.webp",
+          price: 49.99,
+          description:
+            "The Food Processor is a versatile kitchen tool that simplifies chopping, slicing, shredding, and blending. With multiple attachments and a powerful motor, it can handle a variety of tasks, from preparing vegetables to making dough. Its compact design saves counter space.",
+            quantity:1},
+        {
+          id: 5,
+          title: "Hand Mixer",
+          image: "appliances/hand mixer.webp",
+          price: 59.99,
+          description:
+            "This Hand Mixer is perfect for baking enthusiasts. With five speed settings and durable stainless steel beaters, it effortlessly mixes, whips, and blends ingredients. Its lightweight design and ergonomic handle ensure comfortable use for extended periods.",
+            quantity:1},
+        {
+          id: 6,
+          title: "Kitchen Knives",
+          image: "appliances/kitchen knives.webp",
+          price: 59.99,
+          description:
+            "A set of high-quality Kitchen Knives designed for precision and durability. Made from stainless steel, these knives feature ergonomic handles for a comfortable grip and are perfect for slicing, dicing, and chopping a variety of ingredients.",
+            quantity:1 },
+        {
+          id: 7,
+          title: "Meat Mincer",
+          image: "appliances/meat mincer.webp",
+          price: 19.99,
+          description:
+            "The Meat Mincer is a powerful kitchen appliance for grinding meat, vegetables, and more. With a robust motor and easy-to-clean design, it is ideal for making homemade sausages, burgers, and other dishes. Its compact size makes it easy to store.",
+            quantity:1 },
+        {
+          id: 8,
+          title: "Microwave",
+          image: "appliances/microwave.webp",
+          price: 29.99,
+          description:
+            "This Microwave offers quick and efficient cooking, reheating, and defrosting. With multiple power levels and a spacious interior, it is perfect for busy households. Its sleek design and user-friendly controls make it a stylish addition to any kitchen.",
+            quantity:1},
+        {
+          id: 9,
+          title: "Plate Sets",
+          image: "appliances/plate sets.webp",
+          price: 39.99,
+          description:
+            "Elevate your dining experience with this elegant Plate Set. Made from high-quality ceramic, these plates are durable, microwave-safe, and dishwasher-friendly. The set includes dinner plates, salad plates, and bowls, perfect for everyday use or special occasions.",
+        },
+        {
+          id: 10,
+          title: "Water Dispenser",
+          image: "appliances/water dispenser.webp",
+          price: 49.99,
+          description:
+            "The Water Dispenser provides instant hot and cold water at the touch of a button. With a large capacity and child safety lock, it is ideal for homes and offices. Its energy-efficient design ensures cost savings while delivering convenience.",
+            quantity:1},
+        {
+          id: 11,
+          title: "Sandwich Maker",
+          image: "appliances/sadwich maker.webp",
+          price: 59.99,
+          description:
+            "Make delicious sandwiches with this easy-to-use Sandwich Maker. Featuring non-stick plates and adjustable temperature controls, it ensures even cooking and easy cleaning. Its compact design makes it perfect for small kitchens.",
+            quantity:1},
+        {
+          id: 12,
+          title: "PVC Mats",
+          image: "appliances/pvs mats.webp",
+          price: 59.99,
+          description:
+            "These PVC Mats are designed to protect your floors while adding a touch of style to your home. Durable, waterproof, and easy to clean, they are perfect for kitchens, bathrooms, or entryways. Available in a variety of colors and patterns.",
+            quantity:1 },
+      ];
+      
+     
+ 
+
+     function addToCart(button) {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+          alert("You must be logged in to add products to the cart.");
+          window.location.href = "login.html"; // Redirect to login page
+          return;
+        }
+
+        const card = button.closest(".card");
+        const productId = parseInt(card.getAttribute("data-id"));
+        const product = products.find((p) => p.id === productId);
+
+        if (product) {
+          // Retrieve the cart for the logged-in user
+          const cartKey = `cart_${loggedInUser}`;
+          const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+          // Check if the product already exists in the cart
+          const existingProduct = cart.find((item) => item.id === product.id);
+
+          if (existingProduct) {
+            // If the product exists, increment its quantity
+            existingProduct.quantity += 1;
+          } else {
+            // If the product doesn't exist, add it to the cart with a default quantity of 1
+            product.quantity = 1;
+            cart.push(product);
+          }
+
+          // Save the updated cart to localStorage
+          localStorage.setItem(cartKey, JSON.stringify(cart));
+
+          // Update button
+          button.textContent = "Added to Cart";
+          button.classList.remove("btn-add-to-cart");
+          button.classList.add("btn-added");
+          button.disabled = true;
+
+          alert(`${product.title} added to cart!`);
+
+          // Update button states
+          updateButtonStates();
+        }
+      }
+
+      // Function to update button states based on cart contents
+      function updateButtonStates() {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) return;
+
+        const cartKey = `cart_${loggedInUser}`;
+        const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+        document.querySelectorAll(".card").forEach((card) => {
+          const productId = parseInt(card.getAttribute("data-id"));
+          const button = card.querySelector(".btn-add-to-cart");
+
+          if (cart.some((item) => item.id === productId)) {
+            button.textContent = "Added to Cart";
+            button.classList.remove("btn-add-to-cart");
+            button.classList.add("btn-added");
+            button.disabled = true;
+          }
+        });
+      }
+
+      
+      updateButtonStates();
+      // Modal Elements
+ const modal = document.querySelector(".modal");
+      const modalContent = document.querySelector(".modal-content");
+      const closeModal = document.querySelector(".close-modal");
+
+      // Function to open modal with product details
+      function openModal(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          modalContent.querySelector("img").src = product.image;
+          modalContent.querySelector("h2").textContent = product.title;
+          modalContent.querySelector(
+            "#modal-price"
+          ).textContent = `$${product.price}`;
+          modalContent.querySelector("#modal-description").textContent =
+            product.description;
+          modal.style.display = "flex";
+        }
+      }
+
+      // Function to close modal
+      function closeModalHandler() {
+        modal.style.display = "none";
+      }
+      // Add to Cart Functionality from Modal
+function addToCartFromModal(button) {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  if (!loggedInUser) {
+    alert("You must be logged in to add products to the cart.");
+    window.location.href = "login.html"; // Redirect to login page
+    return;
+  }
+
+  const productTitle = modalContent.querySelector("h2").textContent;
+  const product = products.find((p) => p.title === productTitle);
+
+  if (product) {
+    // Retrieve the cart for the logged-in user
+    const cartKey = `cart_${loggedInUser}`;
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+    // Check if the product already exists in the cart
+    const existingProduct = cart.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      // If the product exists, increment its quantity
+      existingProduct.quantity += 1;
+    } else {
+      // If the product doesn't exist, add it to the cart with a default quantity of 1
+      product.quantity = 1;
+      cart.push(product);
+    }
+
+    // Save the updated cart to localStorage
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+
+    // Update button
+    button.textContent = "Added to Cart";
+    button.classList.remove("btn-add-to-cart");
+    button.classList.add("btn-added");
+    button.disabled = true;
+
+    alert(`${product.title} added to cart!`);
+
+    // Update button states
+    updateButtonStates();
+  }
+}
+
+// Attach event listeners to product cards
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("click", (event) => {
+    // Prevent event propagation if the click is on the "Add to Cart" button
+    if (event.target.classList.contains("btn-add-to-cart")) {
+      event.stopPropagation();
+      return;
+    }
+
+    const productId = parseInt(card.getAttribute("data-id"));
+    openModal(productId);
+  });
+});
+
+// Close modal when clicking outside or on the close button
+closeModal.addEventListener("click", (event) => {
+  event.stopPropagation();
+  closeModalHandler();
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    closeModalHandler();
+  }
+});
+
+      // Fetch and inject the navbar
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+
+          // Initialize search functionality AFTER the navbar is loaded
+          initializeSearch();
+        });
+
+      // Function to initialize search functionality
+      function initializeSearch() {
+        // Search Functionality
+        function searchProducts() {
+          const searchTerm = document
+            .getElementById("searchInput")
+            .value.toLowerCase();
+          const cards = document.querySelectorAll(".card");
+
+          cards.forEach((card) => {
+            const title = card
+              .querySelector(".card-title")
+              .textContent.toLowerCase();
+            if (title.includes(searchTerm)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+
+        // event listener for Enter key
+        document
+          .getElementById("searchInput")
+          .addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              searchProducts();
+            }
+          });
+
+        
+        document
+          .querySelector(".search-button")
+          .addEventListener("click", searchProducts);
+      }
+
+      // Fetch and inject the footer
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+        // Function to load the navbar dynamically
+      function loadNavbar() {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Inject the navbar into the DOM
+            document.getElementById("navbar").innerHTML = data;
+
+            // Attach the logout event listener after the navbar is loaded
+            const logoutLink = document.getElementById("logoutLink");
+            if (logoutLink) {
+              logoutLink.addEventListener("click", (e) => {
+                e.preventDefault(); // Prevent the default link behavior
+                logout(); // Call the logout function
+              });
+            }
+          });
+      }
+
+      // Function to handle logout
+      function logout() {
+        // Clear the logged-in user from localStorage
+        localStorage.removeItem("loggedInUser");
+        console.log("User logged out"); // Debugging
+        // Redirect to the homepage
+        window.location.href = "index.html";
+      }
+
+      // Load the navbar when the page loads
+      loadNavbar();
+        function toggleMenu() {
         const navbarLinks = document.querySelector(".custom-navbar-links");
         navbarLinks.classList.toggle("active");
       }
+
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

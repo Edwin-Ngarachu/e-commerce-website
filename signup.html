@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register - CartCraze</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -137,7 +139,7 @@
         Cart<span>craze</span>
       </a>
       <h1>Create Your Account</h1>
-      <form class="register-form">
+      <form id="registerForm" class="register-form">
         <div class="form-group">
           <label for="firstName">First Name</label>
           <input
@@ -197,7 +199,7 @@
           <label for="terms">
             <input type="checkbox" id="terms" name="terms" required>
             I agree to the <a href="/terms-and-conditions" target="_blank">terms and conditions</a>.
-        </label>
+          </label>
         </div>
 
         <button type="submit" class="register-button">Register</button>
@@ -206,5 +208,43 @@
         </div>
       </form>
     </div>
+
+    <script>
+      $(document).ready(function () {
+        // Handle form submission
+        $("#registerForm").on("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          // Get form values
+          const firstName = $("#firstName").val();
+          const lastName = $("#lastName").val();
+          const email = $("#email").val();
+          const password = $("#newPassword").val();
+          const confirmPassword = $("#confirmPassword").val();
+
+          // Validate passwords match
+          if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+          }
+
+          // Create user object
+          const user = {
+            firstName,
+            lastName,
+            email,
+            password,
+          };
+
+          // Save user to localStorage
+          let users = JSON.parse(localStorage.getItem("users")) || [];
+          users.push(user);
+          localStorage.setItem("users", JSON.stringify(users));
+          alert('Signup successful!');
+          // Redirect to index.html
+          window.location.href = "index.html";
+        });
+      });
+    </script>
   </body>
 </html>

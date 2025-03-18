@@ -4,18 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Electronics</title>
-    <script>
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-        });
-      fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer").innerHTML = data;
-        });
-    </script>
+    
+   
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,11 +19,11 @@
         margin-bottom: 20px;
         box-shadow: 0 2px 4px rgb(255, 255, 255);
         transition: transform 0.3s ease;
-        max-width: 300px; 
-        width: 100%; 
+        max-width: 300px;
+        width: 100%;
       }
       .card-body {
-        padding: 15px; 
+        padding: 15px;
       }
       .card-img-top {
         height: 170px;
@@ -76,6 +66,53 @@
         background-color: #28a745 !important;
         cursor: not-allowed;
       }
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 600px;
+        padding: 2rem;
+        position: relative;
+        overflow-y: auto;
+        max-height: 90vh;
+      }
+      .modal-content img {
+        width: 100%;
+        height: 400px;
+        object-fit: none;
+        border-radius: 20px;
+      }
+      .modal-content h2 {
+        font-size: 2rem;
+        margin: 1.5rem 0 1rem;
+        color: #2c3e50;
+      }
+      .modal-content p {
+        font-size: 1rem;
+        color: #666;
+      }
+      .close-modal {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #333;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -88,7 +125,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="1">
             <img
               src="electronics/finix hot 50i.webp"
               class="card-img-top"
@@ -105,7 +142,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="2">
             <img
               src="electronics/itel A70 128gb.webp"
               class="card-img-top"
@@ -122,7 +159,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="3">
             <img
               src="electronics/itel s24.webp"
               class="card-img-top"
@@ -139,7 +176,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="4">
             <img
               src="electronics/oppo a7.webp"
               class="card-img-top"
@@ -156,7 +193,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="5">
             <img
               src="electronics/xiami 14c 128gb 4gb ram.webp"
               class="card-img-top"
@@ -172,7 +209,7 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="6">
             <img
               src="electronics/vivo y25.webp"
               class="card-img-top"
@@ -192,7 +229,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="7">
             <img
               src="electronics/tecno pop 9.webp"
               class="card-img-top"
@@ -209,7 +246,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="8">
             <img
               src="electronics/techno spark 20.webp"
               class="card-img-top"
@@ -226,7 +263,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="9">
             <img
               src="electronics/spark 30c.webp"
               class="card-img-top"
@@ -243,7 +280,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="10">
             <img
               src="electronics/samsung galaxy ao5.webp"
               class="card-img-top"
@@ -260,7 +297,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="11">
             <img
               src="electronics/oppo reno.webp"
               class="card-img-top"
@@ -276,7 +313,7 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="12">
             <img
               src="electronics/oppo a83.webp"
               class="card-img-top"
@@ -299,7 +336,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="13">
             <img
               src="electronics/cbook air.webp"
               class="card-img-top"
@@ -316,7 +353,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="14">
             <img
               src="electronics/dell latitude.webp"
               class="card-img-top"
@@ -333,7 +370,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="15">
             <img
               src="electronics/fujitsu laptop.webp"
               class="card-img-top"
@@ -350,7 +387,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="16">
             <img
               src="electronics/hp elitebook.webp"
               class="card-img-top"
@@ -367,7 +404,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="17">
             <img
               src="electronics/lenovo 270.webp"
               class="card-img-top"
@@ -383,7 +420,7 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="18">
             <img
               src="electronics/lenovo x1 carbon.webp"
               class="card-img-top"
@@ -403,7 +440,7 @@
     <div class="container mt-4">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="19">
             <img
               src="electronics/lenovo yoga.webp"
               class="card-img-top"
@@ -420,7 +457,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="20">
             <img
               src="electronics/ll latitude.webp"
               class="card-img-top"
@@ -437,7 +474,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="21">
             <img
               src="electronics/lenovo yoga.webp"
               class="card-img-top"
@@ -454,7 +491,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="22">
             <img
               src="electronics/Thinkpad t490s.webp"
               class="card-img-top"
@@ -471,7 +508,7 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="23">
             <img
               src="electronics/thinkpad x220s.webp"
               class="card-img-top"
@@ -487,7 +524,7 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-          <div class="card">
+          <div class="card" data-id="24">
             <img
               src="electronics/hp probook.webp"
               class="card-img-top"
@@ -505,22 +542,443 @@
       </div>
     </div>
 
-    <script>
-      function addToCart(button) {
-        button.textContent = "Added to Cart";
-        button.classList.remove("btn-add-to-cart");
-        button.classList.add("btn-added");
-        button.disabled = true;
-      }
-    </script>
-
+    <!-- Single Modal for All Products -->
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img src="" alt="Product Image" />
+        <h2>Product Title</h2>
+        <p>Price: <span id="modal-price"></span></p>
+        <p>Description: <span id="modal-description"></span></p>
+        <button class="btn btn-add-to-cart" onclick="addToCartFromModal(this)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
     <div id="footer"></div>
     <script>
-      // JavaScript to toggle the mobile menu
-      function toggleMenu() {
+      // Product Data (can be fetched from an API or database)
+      const products = [
+  {
+    id: 1,
+    title: "Infinix Hot 50i 4+128GB",
+    image: "electronics/finix hot 50i.webp",
+    price: 119.99,
+    description: "The Infinix Hot 50i is a budget-friendly smartphone with a 6.6-inch HD+ display, 4GB RAM, and 128GB storage. It features a 13MP dual-camera setup, a 5000mAh battery, and runs on Android 12. Perfect for everyday use, gaming, and multitasking.",
+    quantity:1},
+  {
+    id: 2,
+    title: "ITel A70 4GB+128GB",
+    image: "electronics/itel A70 128gb.webp",
+    price: 129.99,
+    description: "The ITel A70 offers a 6.6-inch HD+ display, 4GB RAM, and 128GB storage. It features a 13MP rear camera, a 5000mAh battery, and runs on Android 12. A great choice for users looking for a reliable and affordable smartphone.",
+    quantity:1},
+  {
+    id: 3,
+    title: "Itel S24 8GB+128GB",
+    image: "electronics/itel s24.webp",
+    price: 139.99,
+    description: "The Itel S24 is a stylish smartphone with a 6.6-inch HD+ display, 8GB RAM, and 128GB storage. It features a 13MP dual-camera setup, a 5000mAh battery, and runs on Android 12. Ideal for gaming, photography, and multitasking.",
+    quantity:1},
+  {
+    id: 4,
+    title: "Oppo A7 4+64GB",
+    image: "electronics/oppo a7.webp",
+    price: 149.99,
+    description: "The Oppo A7 features a 6.2-inch HD+ display, 4GB RAM, and 64GB storage. It comes with a 13MP dual-camera setup, a 4230mAh battery, and runs on Android 8.1. A sleek and reliable smartphone for everyday use.",
+    quantity:1 },
+  {
+    id: 5,
+    title: "Xiaomi 14C 4+256GB",
+    image: "electronics/xiami 14c 128gb 4gb ram.webp",
+    price: 259.99,
+    description: "The Xiaomi 14C is a powerful smartphone with a 6.5-inch HD+ display, 4GB RAM, and 256GB storage. It features a 50MP triple-camera setup, a 5000mAh battery, and runs on Android 13. Perfect for photography, gaming, and multitasking.",
+    quantity:1 },
+  {
+    id: 6,
+    title: "Vivo Y25 4+128GB",
+    image: "electronics/vivo y25.webp",
+    price: 159.99,
+    description: "The Vivo Y25 offers a 6.5-inch HD+ display, 4GB RAM, and 128GB storage. It features a 50MP dual-camera setup, a 5000mAh battery, and runs on Android 12. A great choice for users looking for a stylish and reliable smartphone.",
+    quantity:1},
+  {
+    id: 7,
+    title: "Tecno Pop9 6+128GB",
+    image: "electronics/tecno pop 9.webp",
+    price: 199.99,
+    description: "The Tecno Pop9 is a budget-friendly smartphone with a 6.56-inch HD+ display, 6GB RAM, and 128GB storage. It features a 13MP dual-camera setup, a 5000mAh battery, and runs on Android 12. Perfect for everyday use and multitasking.",
+    quantity:1},
+  {
+    id: 8,
+    title: "Techno Spark 20 4+128GB",
+    image: "electronics/techno spark 20.webp",
+    price: 229.99,
+    description: "The Techno Spark 20 offers a 6.6-inch HD+ display, 4GB RAM, and 128GB storage. It features a 50MP dual-camera setup, a 5000mAh battery, and runs on Android 12. A great choice for users looking for a reliable and stylish smartphone.",
+    quantity:1 },
+  {
+    id: 9,
+    title: "Tecno Spark 30C 8+128GB",
+    image: "electronics/spark 30c.webp",
+    price: 239.99,
+    description: "The Tecno Spark 30C is a powerful smartphone with a 6.6-inch HD+ display, 8GB RAM, and 128GB storage. It features a 50MP triple-camera setup, a 5000mAh battery, and runs on Android 12. Perfect for gaming, photography, and multitasking.",
+    quantity:1},
+  {
+    id: 10,
+    title: "Samsung A05s 4+128GB",
+    image: "electronics/samsung galaxy ao5.webp",
+    price: 149.99,
+    description: "The Samsung A05s features a 6.5-inch HD+ display, 4GB RAM, and 128GB storage. It comes with a 50MP triple-camera setup, a 5000mAh battery, and runs on Android 13. A sleek and reliable smartphone for everyday use.",
+    quantity:1 },
+  {
+    id: 11,
+    title: "Oppo Reno 4+64GB",
+    image: "electronics/oppo reno.webp",
+    price: 159.99,
+    description: "The Oppo Reno offers a 6.4-inch HD+ display, 4GB RAM, and 64GB storage. It features a 48MP dual-camera setup, a 3765mAh battery, and runs on Android 9. A stylish and reliable smartphone for everyday use.",
+    quantity:1},
+  {
+    id: 12,
+    title: "Oppo A83 4+128GB",
+    image: "electronics/oppo a83.webp",
+    price: 159.99,
+    description: "The Oppo A83 features a 5.7-inch HD+ display, 4GB RAM, and 128GB storage. It comes with a 13MP rear camera, a 3180mAh battery, and runs on Android 7.1. A compact and reliable smartphone for everyday use.",
+    quantity:1},
+  {
+    id: 13,
+    title: "Macbook Air 8 256GB",
+    image: "electronics/cbook air.webp",
+    price: 319.99,
+    description: "The Macbook Air is a lightweight and powerful laptop with an 8-core CPU, 8GB RAM, and 256GB SSD. It features a 13.3-inch Retina display, up to 18 hours of battery life, and runs on macOS. Perfect for productivity, creativity, and entertainment.",
+    quantity:1},
+  {
+    id: 14,
+    title: "Dell Latitude 16 256GB",
+    image: "electronics/dell latitude.webp",
+    price: 429.99,
+    description: "The Dell Latitude is a reliable laptop with a 16-inch HD display, 8GB RAM, and 256GB SSD. It features an Intel Core i5 processor, up to 10 hours of battery life, and runs on Windows 11. Ideal for business and productivity.",
+  },
+  {
+    id: 15,
+    title: "Fujitsu Laptop 16 256GB",
+    image: "electronics/fujitsu laptop.webp",
+    price: 139.99,
+    description: "The Fujitsu Laptop offers a 16-inch HD display, 8GB RAM, and 256GB SSD. It features an Intel Core i3 processor, up to 8 hours of battery life, and runs on Windows 10. A great choice for everyday use and productivity.",
+    quantity:1 },
+  {
+    id: 16,
+    title: "Hp Elitebook 16 256GB",
+    image: "electronics/hp elitebook.webp",
+    price: 249.99,
+    description: "The HP Elitebook is a powerful laptop with a 16-inch HD display, 8GB RAM, and 256GB SSD. It features an Intel Core i5 processor, up to 12 hours of battery life, and runs on Windows 11. Perfect for business and productivity.",
+    quantity:1 },
+  {
+    id: 17,
+    title: "Lenovo Yoga 270 8 256GB",
+    image: "electronics/lenovo 270.webp",
+    price: 359.99,
+    description: "The Lenovo Yoga 270 is a versatile 2-in-1 laptop with an 8-core CPU, 8GB RAM, and 256GB SSD. It features a 13.3-inch touchscreen display, up to 10 hours of battery life, and runs on Windows 11. Ideal for productivity and creativity.",
+    quantity:1 },
+  {
+    id: 18,
+    title: "Lenovo X1 Carbon 8 256GB",
+    image: "electronics/lenovo x1 carbon.webp",
+    price: 359.99,
+    description: "The Lenovo X1 Carbon is a lightweight and powerful laptop with an 8-core CPU, 8GB RAM, and 256GB SSD. It features a 14-inch HD display, up to 15 hours of battery life, and runs on Windows 11. Perfect for business and productivity.",
+    quantity:1},
+  {
+    id: 19,
+    title: "Lenovo Yoga 390 8 256GB",
+    image: "electronics/lenovo yoga.webp",
+    price: 199.99,
+    description: "The Lenovo Yoga 390 is a versatile 2-in-1 laptop with an 8-core CPU, 8GB RAM, and 256GB SSD. It features a 13.3-inch touchscreen display, up to 10 hours of battery life, and runs on Windows 11. Ideal for productivity and creativity.",
+    quantity:1 },
+  {
+    id: 20,
+    title: "Dell Latitude 8 256GB",
+    image: "electronics/ll latitude.webp",
+    price: 229.99,
+    description: "The Dell Latitude is a reliable laptop with an 8-core CPU, 8GB RAM, and 256GB SSD. It features a 14-inch HD display, up to 10 hours of battery life, and runs on Windows 11. Perfect for business and productivity.",
+    quantity:1 },
+  {
+    id: 21,
+    title: "Lenovo Yoga 8 256GB",
+    image: "electronics/lenovo yoga.webp",
+    price: 339.99,
+    description: "The Lenovo Yoga is a versatile 2-in-1 laptop with an 8-core CPU, 8GB RAM, and 256GB SSD. It features a 13.3-inch touchscreen display, up to 10 hours of battery life, and runs on Windows 11. Ideal for productivity and creativity.",
+    quantity:1 },
+  {
+    id: 22,
+    title: "Lenovo T490s 16GB 256GB",
+    image: "electronics/Thinkpad t490s.webp",
+    price: 349.99,
+    description: "The Lenovo T490s is a powerful laptop with a 14-inch HD display, 16GB RAM, and 256GB SSD. It features an Intel Core i7 processor, up to 12 hours of battery life, and runs on Windows 11. Perfect for business and productivity.",
+    quantity:1 },
+  {
+    id: 23,
+    title: "Lenovo Thinkpad 8 256GB",
+    image: "electronics/thinkpad x220s.webp",
+    price: 259.99,
+    description: "The Lenovo Thinkpad is a reliable laptop with an 8-core CPU, 8GB RAM, and 256GB SSD. It features a 14-inch HD display, up to 10 hours of battery life, and runs on Windows 11. Ideal for business and productivity.",
+    quantity:1 },
+  {
+    id: 24,
+    title: "Hp Probook 840 G5",
+    image: "electronics/hp probook.webp",
+    price: 259.99,
+    description: "The HP Probook 840 G5 is a powerful laptop with a 14-inch HD display, 8GB RAM, and 256GB SSD. It features an Intel Core i5 processor, up to 12 hours of battery life, and runs on Windows 11. Perfect for business and productivity.",
+    quantity:1 },
+];
+function addToCart(button) {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) {
+          alert("You must be logged in to add products to the cart.");
+          window.location.href = "login.html"; // Redirect to login page
+          return;
+        }
+
+        const card = button.closest(".card");
+        const productId = parseInt(card.getAttribute("data-id"));
+        const product = products.find((p) => p.id === productId);
+
+        if (product) {
+          // Retrieve the cart for the logged-in user
+          const cartKey = `cart_${loggedInUser}`;
+          const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+          // Check if the product already exists in the cart
+          const existingProduct = cart.find((item) => item.id === product.id);
+
+          if (existingProduct) {
+            // If the product exists, increment its quantity
+            existingProduct.quantity += 1;
+          } else {
+            // If the product doesn't exist, add it to the cart with a default quantity of 1
+            product.quantity = 1;
+            cart.push(product);
+          }
+
+          // Save the updated cart to localStorage
+          localStorage.setItem(cartKey, JSON.stringify(cart));
+
+          // Update button
+          button.textContent = "Added to Cart";
+          button.classList.remove("btn-add-to-cart");
+          button.classList.add("btn-added");
+          button.disabled = true;
+
+          alert(`${product.title} added to cart!`);
+
+          // Update button states
+          updateButtonStates();
+        }
+      }
+
+      // Function to update button states based on cart contents
+      function updateButtonStates() {
+        const loggedInUser = localStorage.getItem("loggedInUser");
+        if (!loggedInUser) return;
+
+        const cartKey = `cart_${loggedInUser}`;
+        const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+        document.querySelectorAll(".card").forEach((card) => {
+          const productId = parseInt(card.getAttribute("data-id"));
+          const button = card.querySelector(".btn-add-to-cart");
+
+          if (cart.some((item) => item.id === productId)) {
+            button.textContent = "Added to Cart";
+            button.classList.remove("btn-add-to-cart");
+            button.classList.add("btn-added");
+            button.disabled = true;
+          }
+        });
+      }
+
+      
+      updateButtonStates();
+      // Modal Elements
+ const modal = document.querySelector(".modal");
+      const modalContent = document.querySelector(".modal-content");
+      const closeModal = document.querySelector(".close-modal");
+
+      // Function to open modal with product details
+      function openModal(productId) {
+        const product = products.find((p) => p.id === productId);
+        if (product) {
+          modalContent.querySelector("img").src = product.image;
+          modalContent.querySelector("h2").textContent = product.title;
+          modalContent.querySelector(
+            "#modal-price"
+          ).textContent = `$${product.price}`;
+          modalContent.querySelector("#modal-description").textContent =
+            product.description;
+          modal.style.display = "flex";
+        }
+      }
+
+      // Function to close modal
+      function closeModalHandler() {
+        modal.style.display = "none";
+      }
+      // Add to Cart Functionality from Modal
+function addToCartFromModal(button) {
+  const loggedInUser = localStorage.getItem("loggedInUser");
+  if (!loggedInUser) {
+    alert("You must be logged in to add products to the cart.");
+    window.location.href = "login.html"; // Redirect to login page
+    return;
+  }
+
+  const productTitle = modalContent.querySelector("h2").textContent;
+  const product = products.find((p) => p.title === productTitle);
+
+  if (product) {
+    // Retrieve the cart for the logged-in user
+    const cartKey = `cart_${loggedInUser}`;
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
+    // Check if the product already exists in the cart
+    const existingProduct = cart.find((item) => item.id === product.id);
+
+    if (existingProduct) {
+      // If the product exists, increment its quantity
+      existingProduct.quantity += 1;
+    } else {
+      // If the product doesn't exist, add it to the cart with a default quantity of 1
+      product.quantity = 1;
+      cart.push(product);
+    }
+
+    // Save the updated cart to localStorage
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+
+    // Update button
+    button.textContent = "Added to Cart";
+    button.classList.remove("btn-add-to-cart");
+    button.classList.add("btn-added");
+    button.disabled = true;
+
+    alert(`${product.title} added to cart!`);
+
+    // Update button states
+    updateButtonStates();
+  }
+}
+
+// Attach event listeners to product cards
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("click", (event) => {
+    // Prevent event propagation if the click is on the "Add to Cart" button
+    if (event.target.classList.contains("btn-add-to-cart")) {
+      event.stopPropagation();
+      return;
+    }
+
+    const productId = parseInt(card.getAttribute("data-id"));
+    openModal(productId);
+  });
+});
+
+// Close modal when clicking outside or on the close button
+closeModal.addEventListener("click", (event) => {
+  event.stopPropagation();
+  closeModalHandler();
+});
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    closeModalHandler();
+  }
+});
+
+      // Fetch and inject the navbar
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+
+          // Initialize search functionality AFTER the navbar is loaded
+          initializeSearch();
+        });
+
+      // Function to initialize search functionality
+      function initializeSearch() {
+        // Search Functionality
+        function searchProducts() {
+          const searchTerm = document
+            .getElementById("searchInput")
+            .value.toLowerCase();
+          const cards = document.querySelectorAll(".card");
+
+          cards.forEach((card) => {
+            const title = card
+              .querySelector(".card-title")
+              .textContent.toLowerCase();
+            if (title.includes(searchTerm)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        }
+
+        // event listener for Enter key
+        document
+          .getElementById("searchInput")
+          .addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+              searchProducts();
+            }
+          });
+
+        
+        document
+          .querySelector(".search-button")
+          .addEventListener("click", searchProducts);
+      }
+
+      // Fetch and inject the footer
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+        // Function to load the navbar dynamically
+      function loadNavbar() {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Inject the navbar into the DOM
+            document.getElementById("navbar").innerHTML = data;
+
+            // Attach the logout event listener after the navbar is loaded
+            const logoutLink = document.getElementById("logoutLink");
+            if (logoutLink) {
+              logoutLink.addEventListener("click", (e) => {
+                e.preventDefault(); // Prevent the default link behavior
+                logout(); // Call the logout function
+              });
+            }
+          });
+      }
+
+      // Function to handle logout
+      function logout() {
+        // Clear the logged-in user from localStorage
+        localStorage.removeItem("loggedInUser");
+        console.log("User logged out"); // Debugging
+        // Redirect to the homepage
+        window.location.href = "index.html";
+      }
+
+      // Load the navbar when the page loads
+      loadNavbar();
+function toggleMenu() {
         const navbarLinks = document.querySelector(".custom-navbar-links");
         navbarLinks.classList.toggle("active");
       }
+
+   
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
